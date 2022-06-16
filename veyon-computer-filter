@@ -1,0 +1,12 @@
+(
+    &(objectClass=computer)(
+        | 
+        (extensionAttribute2=B00B,L00,R0015)
+        (extensionAttribute2=B00I,L01,R1020)
+        (extensionAttribute2=B00I,L01,R1021)
+        (extensionAttribute2=B00L,L00,R0018)
+        (extensionAttribute2=B00L,L01,R1003)
+        (extensionAttribute2=B00S,L00,R0003)
+        (extensionAttribute2=B00S,L00,R0010)
+    )
+)
