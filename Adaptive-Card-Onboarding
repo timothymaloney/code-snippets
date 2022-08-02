@@ -1,0 +1,239 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.4",
+    "msteams": {
+        "width": "Full"
+    },
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "altText": "People",
+                            "url": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/dates.png",
+                            "width": "75px",
+                            "selectAction": {
+                                "type": "Action.OpenUrl",
+                                "url": "https://schoolsnsw.sharepoint.com/sites/8880CALJS/",
+                                "id": "11"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "**New Onboarding Form Request**",
+                            "weight": "Bolder",
+                            "size": "Large",
+                            "wrap": true,
+                            "color": "Good",
+                            "isSubtle": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "",
+                            "wrap": true,
+                            "spacing": "None",
+                            "color": "Accent",
+                            "weight": "Bolder",
+                            "size": "Large"
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                }
+            ],
+            "style": "Good",
+            "bleed": true
+        },
+        {
+            "type": "TextBlock",
+            "wrap": true,
+            "separator": true,
+            "size": "Small",
+            "text": "This **Onboarding Request Form** has been placed by @{triggerOutputs()?['body/Title']} (@{triggerOutputs()?['body/Email']}).",
+            "fontType": "Default",
+            "color": "Accent"
+        },
+  {
+            "type": "ActionSet",
+            "separator": true,
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/sharepoint.png",
+                    "url": "@{triggerOutputs()?['body/{Link}']}",
+                    "title": "View details of this Onboarding Request"
+                }
+            ]
+},
+        {
+            "type": "Container",
+            "bleed": true,
+            "style": "accent",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "✅ Requested by",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{triggerOutputs()?['body/Title']}",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "⌚ Requested time",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{body('Convert_time_zone')}",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Request ID",
+                    "value": "@{triggerOutputs()?['body/ID']}"
+                },
+                {
+                    "title": "Name",
+                    "value": "@{triggerOutputs()?['body/Title']}"
+                },
+                {
+                    "title": "Email",
+                    "value": "@{triggerOutputs()?['body/Email']}"
+                },
+                {
+                    "title": "Faculty",
+                    "value": "@{triggerOutputs()?['body/FacultyText']}"
+                },
+                {
+                    "title": "Role",
+                    "value": "@{triggerOutputs()?['body/Role/Value']}"
+                }
+            ],
+            "separator": true
+        },
+        {
+            "type": "Container",
+            "style": "good",
+            "bleed": true,
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "🖥 **Please assign access to the following systems**",
+                    "wrap": true,
+                    "color": "Accent"
+                },
+                {
+                    "type": "ActionSet",
+                    "separator": true,
+                    "actions": [
+                        {
+                            "type": "Action.OpenUrl",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/smu.png",
+                            "url": "https://online.det.nsw.edu.au/smu",
+                            "title": "SMU"
+                        },
+                        {
+                            "type": "Action.OpenUrl",
+                            "title": "Sentral",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/sentral.png",
+                            "url": "https://callaghancollegejesmond.sentral.com.au/admin/authentication/users_manage"
+                        },
+                        {
+                            "type": "Action.OpenUrl",
+                            "title": "Edval Daily",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/edval.png",
+                            "url": "https://ccjc-nsw.edval.education/login"
+                        },
+                        {
+                            "type": "Action.OpenUrl",
+                            "title": "PaperCut",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/papercut.png",
+                            "url": "http://8880jr1001sp001:9191/app?service=page/UserList"
+                        },
+                        {
+                            "type": "Action.OpenUrl",
+                            "title": "Email DL",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/outlook.png",
+                            "url": "https://mad-uap.uc.det.nsw.edu.au/ExchangeBasePages/DistributionGroup/DistributionGroup.aspx"
+                        }
+                    ]
+                },
+                {
+                    "type": "ActionSet",
+                    "separator": true,
+                    "actions": [
+                        {
+                            "type": "Action.OpenUrl",
+                            "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/sharepoint.png",
+                            "url": "https://schoolsnsw.sharepoint.com/sites/8880CALJS/admin/Lists/Staff%20IT%20Information/AllItems.aspx",
+                            "title": "Update SharePoint entry after you have completed"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "separator": true,
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/sharepoint.png",
+                    "url": "@{triggerOutputs()?['body/{Link}']}",
+                    "title": "View details of this Onboarding Request"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Chat with @{triggerOutputs()?['body/Title']} (Requestor)",
+                    "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/teams.png",
+                    "url": "https://teams.microsoft.com/l/chat/0/0?users=@{triggerOutputs()?['body/Author/Email']}"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Email @{triggerOutputs()?['body/Title']} (Requestor)",
+                    "iconUrl": "https://jesmondcc-h.schools.nsw.gov.au/content/dam/doe/sws/schools/j/jesmondcc-h/icons/outlook.png",
+                    "url": "mailto:@{triggerOutputs()?['body/Author/Email']}?subject=Onboarding%20Request%20-%20@{triggerOutputs()?['body/Title']}%20(@{triggerOutputs()?['body/ID']})&body=Hi%2C%0D%0A%0D%0AThis%20email%20is%20in%20relation%20to%20the%20Onboarding%20Request%20(@{triggerOutputs()?['body/ID']})%20for%20@{triggerOutputs()?['body/Title']}%20submitted%20at%20@{body('Convert_time_zone')}.%0D%0A"
+                }
+            ]
+        }
+    ]
+} 
