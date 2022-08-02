@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "children": [
+    {
+      "elmType": "div",
+      "attributes": {
+        "class": "=if(@currentField , 'ms-bgColor-themePrimary ms-bgColor-themeDark--hover ms-fontColor-white' , 'ms-bgColor-neutralQuaternaryAlt ms-bgColor-neutralTertiaryAlt--hover ms-fontColor-neutralSecondary')",
+        "iconName": "Mail"
+      },
+      "style": {
+        "width": "30px",
+        "height": "30px",
+        "border-radius": "50%",
+        "display": "flex",
+        "justify-content": "center",
+        "align-items": "center",
+        "font-size": "19px",
+        "cursor": "pointer"
+      },
+      "customRowAction": {
+        "action": "setValue",
+        "actionInput": {
+          "EmailDL": "=if(@currentField , '0' , '1' )"
+        }
+      }
+    }
+  ]
+}
